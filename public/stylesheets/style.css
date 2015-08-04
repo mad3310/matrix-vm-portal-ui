@@ -1,8 +1,38 @@
+/*global style*/
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header{
+  height: 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: black;
+}
+
+.footer{
+  height: 20px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: grey;
+}
+
+.main{
+  margin-top: 30px;
+}
+
+.main .side-menu{
+   width: 20%;
+  float: left;
+ }
+
+.main .content{
+  width: 80%;
+  float: right;
 }

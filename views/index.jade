@@ -1,5 +1,8 @@
-extends layout
+extends layout/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='main')
+    p='Welcome you!'
+    ul
+      li
+        a(href='/mcluster')='container集群'

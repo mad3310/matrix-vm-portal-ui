@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    block link
+      link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    include header.html
+    block content
+    include footer.html
+
+    block script-vendor
+      script(type='text/javascript',src='/javascripts/jquery-1.11.3.js')
+      script(type='text/javascript',src='/javascripts/bootstrap.js')
+
+    block script-app
