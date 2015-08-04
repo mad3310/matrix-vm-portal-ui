@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div(class='container-fluid')
+      div(class='col-md-12')
+        form
+          div.form-group
+            label(for='exampleInputEmail1') Email address
+            input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+          div.form-group
+            label(for='exampleInputPassword1') Password
+            input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+          button.btn.btn-default(type='submit') Submit
+    //vendor
+    script(type='text/javascript',src='/javascripts/jquery-1.11.3.js')
+    script(type='text/javascript',src='/javascripts/bootstrap.js')

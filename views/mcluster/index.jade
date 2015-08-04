@@ -1,0 +1,18 @@
+extends ../layout/layout
+
+block content
+  div(class='main',ng-app='myApp')
+    div(class='side-menu',ng-include="'/mcluster/templates/sidemenu.html'")
+    div(class='content',ng-view )
+    div(class='clearfix')
+
+block append script-vendor
+  script(type='text/javascript',src='/javascripts/angular.js')
+  script(type='text/javascript',src='/javascripts/angular-route.js')
+
+block script-app
+  script(type='text/javascript',src='/mcluster/app.js')
+  script(type='text/javascript',src='/mcluster/app.route.js')
+  script(type='text/javascript',src='/mcluster/controllers.js')
+  script(type='text/javascript',src='/mcluster/services.js')
+  script(type='text/javascript',src='/mcluster/directives.js')
