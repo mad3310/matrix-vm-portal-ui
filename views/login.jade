@@ -9,12 +9,18 @@ html
       div(class='col-md-12')
         form
           div.form-group
-            label(for='exampleInputEmail1') Email address
-            input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+            label(for='exampleInputEmail1') 邮箱
+            input#exampleInputEmail1.form-control(type='email', placeholder='邮箱')
           div.form-group
-            label(for='exampleInputPassword1') Password
-            input#exampleInputPassword1.form-control(type='password', placeholder='Password')
-          button.btn.btn-default(type='submit') Submit
+            label(for='exampleInputPassword1') 密码
+            input#exampleInputPassword1.form-control(type='password', placeholder='密码')
+          button.btn.btn-default.login(type='submit') 登录
     //vendor
     script(type='text/javascript',src='/javascripts/jquery-1.11.3.js')
     script(type='text/javascript',src='/javascripts/bootstrap.js')
+    script(type='text/javascript').
+      $('.login').on('click',function(e){
+          $.post('api/login',{username:$('input[type=email]').val(),password:$('input[type=password]').val()},function(data){
+
+          });
+      });
