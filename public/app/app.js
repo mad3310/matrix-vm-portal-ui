@@ -5,7 +5,7 @@
     var app = angular.module('myApp', [
         //angular
         'ngRoute',
-        //mcluster
+        //app
         'Controllers',
         'Services',
         'Directives'

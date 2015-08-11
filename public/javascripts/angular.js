@@ -1093,7 +1093,7 @@ var csp = function() {
  * This example shows how to force jqLite using the `ngJq` directive to the `html` tag.
  ```html
  <!doctype html>
- <html ng-mcluster ng-jq>
+ <html ng-app ng-jq>
  ...
  ...
  </html>
@@ -1103,7 +1103,7 @@ var csp = function() {
  * The library name must be available at the top most 'window'.
  ```html
  <!doctype html>
- <html ng-mcluster ng-jq="jQueryLib">
+ <html ng-app ng-jq="jQueryLib">
  ...
  ...
  </html>
@@ -1398,7 +1398,7 @@ function getNgAttribute(element, ngAttr) {
  * @element ANY
  * @param {angular.Module} ngApp an optional application
  *   {@link angular.module module} name to load.
- * @param {boolean=} ngStrictDi if this attribute is present on the mcluster element, the injector will be
+ * @param {boolean=} ngStrictDi if this attribute is present on the app element, the injector will be
  *   created in "strict-di" mode. This means that the application will fail to invoke functions which
  *   do not use explicit function annotation (and are thus unsuitable for minification), as described
  *   in {@link guide/di the Dependency Injection guide}, and useful debugging info will assist in
@@ -1442,9 +1442,9 @@ function getNgAttribute(element, ngAttr) {
  *
  * Using `ngStrictDi`, you would see something like this:
  *
- <example ng-mcluster-included="true">
+ <example ng-app-included="true">
    <file name="index.html">
-   <div ng-mcluster="ngAppStrictDemo" ng-strict-di>
+   <div ng-app="ngAppStrictDemo" ng-strict-di>
        <div ng-controller="GoodController1">
            I can add: {{a}} + {{b}} =  {{ a+b }}
 
@@ -1573,7 +1573,7 @@ function angularInit(element, bootstrap) {
  *
  * <script src="angular.js"></script>
  * <script>
- *   var mcluster = angular.module('demo', [])
+ *   var app = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
  *       $scope.greeting = 'Welcome!';
  *   });
@@ -1594,7 +1594,7 @@ function angularInit(element, bootstrap) {
  * * `strictDi` - disable automatic function annotation for the application. This is meant to
  *   assist in finding bugs which break minified code. Defaults to `false`.
  *
- * @returns {auto.$injector} Returns the newly created injector for this mcluster.
+ * @returns {auto.$injector} Returns the newly created injector for this app.
  */
 function bootstrap(element, modules, config) {
   if (!isObject(config)) config = {};
@@ -3654,7 +3654,7 @@ var $$HashMapProvider = [function() {
  *   });
  * ```
  *
- * Sometimes you want to get access to the injector of a currently running Angular mcluster
+ * Sometimes you want to get access to the injector of a currently running Angular app
  * from outside Angular. Perhaps, you want to inject and compile some markup after the
  * application has been bootstrapped. You can do this using the extra `injector()` added
  * to JQuery/jqLite elements. See {@link angular.element}.
@@ -6069,7 +6069,7 @@ function $CacheFactoryProvider() {
  *
  * **Note:** the `script` tag containing the template does not need to be included in the `head` of
  * the document, but it must be a descendent of the {@link ng.$rootElement $rootElement} (IE,
- * element with ng-mcluster attribute), otherwise the template will be ignored.
+ * element with ng-app attribute), otherwise the template will be ignored.
  *
  * Adding via the `$templateCache` service:
  *
@@ -6385,7 +6385,7 @@ function $TemplateCacheProvider() {
  * sibling and parent elements as though this element had not contained any directives.
  *
  * The compiler does not suspend the entire compilation to wait for templates to be loaded because this
- * would result in the whole mcluster "stalling" until all templates are loaded asynchronously - even in the
+ * would result in the whole app "stalling" until all templates are loaded asynchronously - even in the
  * case when only one deeply nested directive has `templateUrl`.
  *
  * Template loading is asynchronous even if the template has been preloaded into the {@link $templateCache}
@@ -6619,7 +6619,7 @@ function $TemplateCacheProvider() {
  * like this:
  *
  * ```html
- * <div ng-mcluster>
+ * <div ng-app>
  *   <div isolate>
  *     <div transclusion>
  *     </div>
@@ -10611,7 +10611,7 @@ $interpolateMinErr.interr = function(text, err) {
       this.label = "This binding is brought you by // interpolation symbols.";
   });
 </script>
-<div ng-mcluster="App" ng-controller="DemoController as demo">
+<div ng-app="App" ng-controller="DemoController as demo">
     //demo.label//
 </div>
 </file>
@@ -16427,7 +16427,7 @@ function adjustMatchers(matchers) {
  *
  * **Example**:  Consider the following case. <a name="example"></a>
  *
- * - your mcluster is hosted at url `http://myapp.example.com/`
+ * - your app is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
  *   `http://srv01.assets.example.com/`,  `http://srv02.assets.example.com/`, etc.
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
@@ -22907,7 +22907,7 @@ var ngCloakDirective = ngDirective({
  *     </ul>
  *    </div>
  *   </file>
- *   <file name="mcluster.js">
+ *   <file name="app.js">
  *    angular.module('controllerAsExample', [])
  *      .controller('SettingsController1', SettingsController1);
  *
@@ -22990,7 +22990,7 @@ var ngCloakDirective = ngDirective({
  *    </ul>
  *   </div>
  *  </file>
- *  <file name="mcluster.js">
+ *  <file name="app.js">
  *   angular.module('controllerExample', [])
  *     .controller('SettingsController2', ['$scope', SettingsController2]);
  *
@@ -23105,7 +23105,7 @@ var ngControllerDirective = [function() {
  * This example shows how to apply the `ngCsp` directive to the `html` tag.
    ```html
      <!doctype html>
-     <html ng-mcluster ng-csp>
+     <html ng-app ng-csp>
      ...
      ...
      </html>
@@ -24225,7 +24225,7 @@ var ngInitDirective = ngDirective({
  * ### Example with Validation
  *
  * <example name="ngList-directive" module="listExample">
- *   <file name="mcluster.js">
+ *   <file name="app.js">
  *      angular.module('listExample', [])
  *        .controller('ExampleController', ['$scope', function($scope) {
  *          $scope.names = ['morpheus', 'neo', 'trinity'];
@@ -24781,7 +24781,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    * input field will be updated with the new model value and any pending operations are cancelled.
    *
    * <example name="ng-model-cancel-update" module="cancel-update-example">
-   *   <file name="mcluster.js">
+   *   <file name="app.js">
    *     angular.module('cancel-update-example', [])
    *
    *     .controller('CancelUpdateController', ['$scope', function($scope) {
@@ -25322,7 +25322,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
          <pre>user.name = <span ng-bind="user.name()"></span></pre>
        </div>
      </file>
-     <file name="mcluster.js">
+     <file name="app.js">
        angular.module('getterSetterExample', [])
          .controller('ExampleController', ['$scope', function($scope) {
            var _name = 'Brian';
@@ -25463,7 +25463,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
         <pre>user.name = <span ng-bind="user.name"></span></pre>
       </div>
     </file>
-    <file name="mcluster.js">
+    <file name="app.js">
       angular.module('optionsExample', [])
         .controller('ExampleController', ['$scope', function($scope) {
           $scope.user = { name: 'say', data: '' };
@@ -25517,7 +25517,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
         <pre>user.name = <span ng-bind="user.name"></span></pre>
       </div>
     </file>
-    <file name="mcluster.js">
+    <file name="app.js">
       angular.module('optionsExample', [])
         .controller('ExampleController', ['$scope', function($scope) {
           $scope.user = { name: 'say' };
@@ -25540,7 +25540,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
         <pre>user.name = <span ng-bind="user.name()"></span></pre>
       </div>
     </file>
-    <file name="mcluster.js">
+    <file name="app.js">
       angular.module('getterSetterExample', [])
         .controller('ExampleController', ['$scope', function($scope) {
           var _name = 'Brian';
@@ -28073,7 +28073,7 @@ var SelectController =
  *     </select>
  *     {{ model }}
  *   </file>
- *   <file name="mcluster.js">
+ *   <file name="app.js">
  *     angular.module('nonStringSelect', [])
  *       .run(function($rootScope) {
  *         $rootScope.model = { id: 2 };

@@ -1,8 +1,17 @@
 extends layout/layout
 
 block content
-  div(class='main')
-    p='Welcome you!'
-    ul
-      li
-        a(href='/mcluster')='container集群'
+  div(class='main',ng-app='myApp')
+    div(class='side-menu',ng-include="'/app/templates/sidemenu.html'")
+    div(class='content',ng-view )
+    div(class='clearfix')
+block append script-vendor
+  script(type='text/javascript',src='/javascripts/angular.js')
+  script(type='text/javascript',src='/javascripts/angular-route.js')
+block script-app
+  script(type='text/javascript',src='/app/app.js')
+  script(type='text/javascript',src='/app/app.route.js')
+  script(type='text/javascript',src='/app/controllers.js')
+  script(type='text/javascript',src='/app/services.js')
+  script(type='text/javascript',src='/app/directives.js')
+                                                                                                        

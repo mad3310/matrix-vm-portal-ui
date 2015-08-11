@@ -10,8 +10,4 @@ router.get('/login', function (req, res, next) {
   res.render('login', {title: 'Express'});
 });
 
-router.get('/mcluster', function (req, res, next) {
-  res.render('mcluster/index', {title: 'Express'});
-});
-
 module.exports = router;

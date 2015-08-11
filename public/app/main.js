@@ -6,8 +6,8 @@ require.config({
         'bootstrap': '/javascripts/bootstrap.js',
         'angular-route': '/javascripts/angular-route.js',
         //js文件
-        'app': '/mcluster/mcluster.js',
-        'app.router': '/mcluster/mcluster.route.js'
+        'app': '/app/app.js',
+        'app.router': '/app/app.route.js'
     },
     shim: {
         'angular': {
@@ -24,7 +24,7 @@ require.config({
     }
 });
 
-require([ 'jquery','angular','bootstrap','app','mcluster.router'],
+require([ 'jquery','angular','bootstrap','app','app.router'],
     function(jquery,angular){
         angular.bootstrap(document,['myApp']);
     }

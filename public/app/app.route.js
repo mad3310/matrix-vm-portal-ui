@@ -18,13 +18,13 @@
                     url: '/',
                     config: {
                         title: '云主机列表',
-                        templateUrl: '/mcluster/templates/vm-list.html'
+                        templateUrl: '/app/templates/vm-list.html'
                     }
                 }, {
                     url: '/vm/create',
                     config: {
                         title: '创建云主机',
-                        templateUrl: '/mcluster/templates/vm-create.html'
+                        templateUrl: '/app/templates/vm-create.html'
                     }
                 }
             ];

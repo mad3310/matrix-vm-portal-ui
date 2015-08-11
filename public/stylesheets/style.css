@@ -1,38 +1,81 @@
-/*global style*/
+/*begin global style*/
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/*end global style*/
+
+/*begin header style*/
+.header {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #333333;
 }
 
-.header{
-  height: 30px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: black;
+.header .header-brand {
+    margin-left: 10px;
+    height: 50px;
+    width: 200px;
 }
 
-.footer{
-  height: 20px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background-color: grey;
+.header a:link, .header a:visited, .header a:hover, .header a:active {
+    text-decoration: none;
+    color: white;
 }
 
-.main{
-  margin-top: 30px;
+.header .header-brand .brand-logo {
+    height: 40px;
+    margin-top: -8px;
 }
 
-.main .side-menu{
-   width: 20%;
-  float: left;
- }
-
-.main .content{
-  width: 80%;
-  float: right;
+.header .header-brand span {
+    font-size: 24px;
+    line-height: 50px;
 }
+
+.header .header-brand span small {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.header .account {
+    display: inline;
+    line-height: 50px;
+    margin-right: 10px;
+}
+
+.header .account .dropdown-menu a {
+    color: black;
+}
+
+/*end header style*/
+
+/*begin footer style*/
+.footer {
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: grey;
+}
+
+/*end footer style*/
+
+/*begin main style*/
+.main {
+    margin-top: 50px;
+}
+
+.main .side-menu {
+    width: 20%;
+    float: left;
+}
+
+.main .content {
+    width: 80%;
+    float: right;
+}
+
+/*end main style*/

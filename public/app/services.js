@@ -6,8 +6,8 @@
     servicesModule.factory('RouterService', [
         function () {
             return [
-                {url:'/',templateUrl:'/mcluster/templates/vm-list.html'},
-                {url:'/vm/create',templateUrl:'/mcluster/templates/vm-create.html'}
+                {url:'/',templateUrl:'/app/templates/vm-list.html'},
+                {url:'/vm/create',templateUrl:'/app/templates/vm-create.html'}
             ];
         }]);
 })();

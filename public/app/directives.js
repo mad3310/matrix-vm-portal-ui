@@ -26,7 +26,7 @@
                     }
                 });
             },
-            templateUrl: '/mcluster/templates/directives/le-modal.html'
+            templateUrl: '/app/templates/directives/le-modal.html'
         };
     });
 
