@@ -51,7 +51,7 @@
                   url: '/rds/cluster/container-cluster',
                   title: 'Container集群列表',
                   config: {
-                    templateUrl: '/app/views/vm-list.html'
+                    templateUrl: '/app/views/rds/cluster-manage/container-cluster.html'
                   }
                 }, {
                   url: '/rds/cluster/container-list',

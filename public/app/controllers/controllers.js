@@ -2,7 +2,7 @@
  * Created by jiangfei on 2015/7/21.
  */
 (function () {
-    var controllersModule = angular.module('Controllers', []);
+    var controllersModule = angular.module('controllers', []);
 
     controllersModule.controller('SideMenuController', ['$scope', 'routes',
         function ($scope, routes) {

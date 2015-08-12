@@ -6,9 +6,9 @@
         //angular
         'ngRoute',
         //app
-        'Controllers',
-        'Services',
-        'Directives'
+        'controllers',
+        'services',
+        'directives'
     ]);
 
     app.run(['$route', function ($route) {

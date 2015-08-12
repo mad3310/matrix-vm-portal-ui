@@ -2,7 +2,7 @@
  * Created by jiangfei on 2015/7/22.
  */
 (function () {
-    var directivesModule = angular.module('Directives', []);
+    var directivesModule = angular.module('directives', []);
 
     directivesModule.directive('leModal', function () {
         return {
@@ -26,7 +26,7 @@
                     }
                 });
             },
-            templateUrl: '/app/partials/le-modal.html'
+            templateUrl: '/app/directives/le-modal/template.html'
         };
     });
 
