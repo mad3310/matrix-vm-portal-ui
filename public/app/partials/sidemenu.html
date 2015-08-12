@@ -1,0 +1,14 @@
+<div class="side-menu-crtl" ng-controller="SideMenuController">
+    <ul class="side-menu">
+        <li class="menu-item" ng-repeat="r in routes">
+            <a href="#{{r.url}}">
+                <span>{{r.title}}</span>
+            </a>
+            <ul class="submenu">
+                <li class="submenu-item" ng-repeat="sr in r.subRoutes">
+                    <a href="#{{sr.url}}">{{sr.title}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

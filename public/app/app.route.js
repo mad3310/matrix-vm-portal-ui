@@ -2,36 +2,79 @@
  * Created by jiangfei on 2015/7/22.
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    var app = angular.module('myApp');
+  var app = angular.module('myApp');
 
-    var routeConfigurator = function ($routeProvider, routes) {
-            for (var i = 0, leng = routes.length; i < leng; i++) {
-                $routeProvider.when(routes[i].url, routes[i].config);
+  var routeConfigurator = function ($routeProvider, routes) {
+      angular.forEach(routes, function (value, key) {
+        $routeProvider.when(value.url, value.config);
+        if (value.subRoutes) {
+          angular.forEach(value.subRoutes, function (value, key) {
+            $routeProvider.when(value.url, value.config);
+            if (value.inPageRoutes) {
+              angular.forEach(value.inPageRoutes, function (value, key) {
+                $routeProvider.when(value.url, value.config);
+              });
             }
-            $routeProvider.otherwise({redirectTo: '/'});
+          });
+        }
+      });
+      $routeProvider.otherwise({redirectTo: '/'});
+    },
+    getRoutes = function () {
+      return [
+        {
+          url: '/dashboard',
+          title: 'Dashboard',
+          icon:'fa fa-cogs',
+          config: {
+            templateUrl: '/app/views/vm-create.html'
+          }
         },
-        getRoutes = function () {
-            return [
+        {
+          url: '/rds',
+          title: 'RDS管理',
+          icon:'rds-icon',
+          config: {
+            templateUrl: '/app/views/vm-list.html'
+          },
+          subRoutes: [
+            {
+              url: '/rds/cluster',
+              title: '集群管理',
+              config: {
+                templateUrl: '/app/views/vm-list.html'
+              },
+              inPageRoutes: [
                 {
-                    url: '/',
-                    config: {
-                        title: '云主机列表',
-                        templateUrl: '/app/templates/vm-list.html'
-                    }
+                  url: '/rds/cluster/container-cluster',
+                  title: 'Container集群列表',
+                  config: {
+                    templateUrl: '/app/views/vm-list.html'
+                  }
                 }, {
-                    url: '/vm/create',
-                    config: {
-                        title: '创建云主机',
-                        templateUrl: '/app/templates/vm-create.html'
-                    }
+                  url: '/rds/cluster/container-list',
+                  title: 'Container列表',
+                  config: {
+                    templateUrl: '/app/views/vm-list.html'
+                  }
                 }
-            ];
-        };
+              ]
+            }, {
+              url: '/rds/backup',
+              title: '备份与恢复',
+              config: {
+                templateUrl: '/app/views/vm-create.html'
+              }
+            }
+          ]
+        }
+      ];
+    };
 
-    app.constant('routes', getRoutes());
+  app.constant('routes', getRoutes());
 
-    app.config(['$routeProvider', 'routes', routeConfigurator]);
+  app.config(['$routeProvider', 'routes', routeConfigurator]);
 
 })();
