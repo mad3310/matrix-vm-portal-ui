@@ -100,28 +100,28 @@ body {
 
 /*end main style*/
 
-/*begin side-menu-crtl style*/
-.side-menu-crtl .side-menu, .side-menu-crtl .submenu {
+/*begin side-menu-view style*/
+.side-menu-view .side-menu, .side-menu-view .submenu {
     list-style: none;
 }
 
-.side-menu-crtl .side-menu .menu-item {
+.side-menu-view .side-menu .menu-item {
     display: block;
 }
-.side-menu-crtl .side-menu .menu-item a{
+.side-menu-view .side-menu .menu-item a{
     color: #b4bcc8;
     text-decoration: none;
 }
-.side-menu-crtl .side-menu .menu-item:hover a{
+.side-menu-view .side-menu .menu-item:hover a{
     background-color: #2C3542;
 }
-.side-menu-crtl .side-menu .menu-item > a {
+.side-menu-view .side-menu .menu-item > a {
     display: block;
     padding: 5px 20px;
     border-top: 1px solid #3d4957;
 }
-.side-menu-crtl .side-menu .menu-item .submenu .submenu-item > a {
+.side-menu-view .side-menu .menu-item .submenu .submenu-item > a {
     display: block;
     padding: 2px 20px 5px 40px;
 }
-/*end side-menu-crtl style*/
+/*end side-menu-view style*/
