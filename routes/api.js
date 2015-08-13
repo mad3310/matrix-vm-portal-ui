@@ -3,9 +3,9 @@
  */
 var express = require('express');
 var router = express.Router();
-var vmOperate = require('../lib/vm-operate');
+var mockOperate = require('../lib/mock-operate');
 var auth = require('../lib/auth');
-var operate = new vmOperate();
+var operate = new mockOperate();
 
 router.post('/login', function (req, res, next) {
   var loginInfo = req.body;
@@ -20,6 +20,11 @@ router.post('/vm/create', function (req, res, next) {
 });
 router.get('/vm/list', function (req, res, next) {
   var data = operate.getVmList();
+  res.status(200).send(data);
+});
+
+router.get('/hcluster/list', function (req, res, next) {
+  var data = operate.getHclusterList();
   res.status(200).send(data);
 });
 

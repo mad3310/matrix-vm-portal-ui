@@ -12,6 +12,56 @@ body {
 
 /*end global style*/
 
+/*begin override bootstrap style*/
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/*end override bootstrap style*/
+
+/*begin common style*/
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+    float: left;
+    padding: 0 12px;
+}
+.col-12 {
+    width: 100%;
+}
+.col-11 {
+    width: 91.66666667%;
+}
+.col-10 {
+    width: 83.33333333%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-8 {
+    width: 66.66666667%;
+}
+.col-7 {
+    width: 58.33333333%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-5 {
+    width: 41.66666667%;
+}
+.col-4 {
+    width: 33.33333333%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-2 {
+    width: 16.66666667%;
+}
+.col-1 {
+    width: 8.33333333%;
+}
+/*end common style*/
+
 /*begin header style*/
 .header {
     height: 50px;
@@ -94,6 +144,7 @@ body {
 
 .main .content-wrapper .content {
     margin-left: 230px;
+    padding: 25px 20px 10px 20px;
     min-height: 600px;
     background-color: white;
 }
@@ -108,20 +159,30 @@ body {
 .side-menu-view .side-menu .menu-item {
     display: block;
 }
-.side-menu-view .side-menu .menu-item a{
+
+.side-menu-view .side-menu .menu-item a {
     color: #b4bcc8;
     text-decoration: none;
 }
-.side-menu-view .side-menu .menu-item:hover a{
+
+.side-menu-view .side-menu .menu-item:hover a {
     background-color: #2C3542;
 }
+
 .side-menu-view .side-menu .menu-item > a {
     display: block;
     padding: 5px 20px;
     border-top: 1px solid #3d4957;
 }
+
 .side-menu-view .side-menu .menu-item .submenu .submenu-item > a {
     display: block;
     padding: 2px 20px 5px 40px;
 }
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item .sub-submenu .sub-submenu-item > a {
+    display: block;
+    padding: 2px 20px 5px 60px;
+}
+
 /*end side-menu-view style*/

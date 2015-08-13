@@ -12,8 +12,8 @@
         if (value.subRoutes) {
           angular.forEach(value.subRoutes, function (value, key) {
             $routeProvider.when(value.url, value.config);
-            if (value.inPageRoutes) {
-              angular.forEach(value.inPageRoutes, function (value, key) {
+            if (value.subRoutes) {
+              angular.forEach(value.subRoutes, function (value, key) {
                 $routeProvider.when(value.url, value.config);
               });
             }
@@ -46,7 +46,7 @@
               config: {
                 templateUrl: '/app/views/vm-list.html'
               },
-              inPageRoutes: [
+              subRoutes: [
                 {
                   url: '/rds/cluster/container-cluster',
                   title: 'Container集群列表',

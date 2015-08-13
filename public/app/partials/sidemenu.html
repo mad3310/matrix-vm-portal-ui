@@ -7,6 +7,11 @@
             <ul class="submenu">
                 <li class="submenu-item" ng-repeat="sr in r.subRoutes">
                     <a href="#{{sr.url}}">{{sr.title}}</a>
+                    <ul class="sub-submenu">
+                        <li class="sub-submenu-item" ng-repeat="ssr in sr.subRoutes">
+                            <a href="#{{ssr.url}}">{{ssr.title}}</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
