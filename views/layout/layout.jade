@@ -4,6 +4,7 @@ html(ng-app='myApp')
     title= title
     block link
       link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+      link(rel='stylesheet', href='/stylesheets/common.css')
       link(rel='stylesheet', href='/stylesheets/style.css')
   body
     include header.html
@@ -13,5 +14,6 @@ html(ng-app='myApp')
     block script-vendor
       script(type='text/javascript',src='/javascripts/jquery-1.11.3.js')
       script(type='text/javascript',src='/javascripts/bootstrap.js')
+      script(type='text/javascript',src='/javascripts/common.js')
 
     block script-app
