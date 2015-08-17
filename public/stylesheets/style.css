@@ -63,7 +63,9 @@
 }
 
 .main .side-bar {
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 50px;
     float: left;
     margin-right: -100%;
     margin-top: 10px;
@@ -88,8 +90,14 @@
 /*end main style*/
 
 /*begin side-menu-view style*/
-.side-menu-view .side-menu, .side-menu-view .submenu {
+.side-menu-view .side-menu {
     list-style: none;
+}
+
+.side-menu-view .submenu {
+    list-style: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .side-menu-view .side-menu .menu-item {
@@ -101,24 +109,108 @@
     text-decoration: none;
 }
 
-.side-menu-view .side-menu .menu-item:hover a {
+.side-menu-view .side-menu .menu-item a:hover {
     background-color: #2C3542;
 }
 
 .side-menu-view .side-menu .menu-item > a {
     display: block;
-    padding: 5px 20px;
+    padding: 10px 15px;
     border-top: 1px solid #3d4957;
+}
+
+.side-menu-view .side-menu .menu-item.active > a {
+    background: #1caf9a;
+    color: white;
+}
+
+.side-menu-view .side-menu .menu-item .submenu {
+    display: none;
+}
+
+.side-menu-view .side-menu .menu-item.active .submenu {
+    display: block;
+}
+
+.side-menu-view .side-menu .menu-item > a > i {
+    margin-right: 4px;
+    font-size: 20px;
+}
+
+.side-menu-view .side-menu .menu-item > a > .arrow:before {
+    float: right;
+    width: 10px;
+    text-align: center;
+    margin-top: -1px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: inline;
+    font-size: 16px;
+    font-family: FontAwesome;
+    height: auto;
+    content: "\f104";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+.side-menu-view .side-menu .menu-item.active > a > .arrow:before {
+    content: "\f107";
 }
 
 .side-menu-view .side-menu .menu-item .submenu .submenu-item > a {
     display: block;
-    padding: 2px 20px 5px 40px;
+    padding: 6px 10px 6px 30px;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item.active > a {
+    background: #3e4b5c;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item > a > .arrow:before {
+    float: right;
+    width: 10px;
+    text-align: center;
+    margin-top: -1px;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: inline;
+    font-size: 16px;
+    font-family: FontAwesome;
+    height: auto;
+    content: "\f104";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item.active > a > .arrow:before {
+    content: "\f107";
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item > a > i {
+    visibility: hidden;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item.active > a > i {
+    visibility: visible;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item .sub-submenu {
+    display: none;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item.active .sub-submenu {
+    display: block;
 }
 
 .side-menu-view .side-menu .menu-item .submenu .submenu-item .sub-submenu .sub-submenu-item > a {
     display: block;
-    padding: 2px 20px 5px 60px;
+    padding: 4px 10px 4px 60px;
+}
+
+.side-menu-view .side-menu .menu-item .submenu .submenu-item .sub-submenu .sub-submenu-item.active > a {
+    background: #578ebe;
 }
 
 /*end side-menu-view style*/

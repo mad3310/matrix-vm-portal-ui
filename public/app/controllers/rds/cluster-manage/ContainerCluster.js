@@ -6,8 +6,8 @@
     function ($scope, $http) {
       $scope.text = 'world';
       $scope.hclusterList = [];
-      $http.get('/api/hcluster/list').success(function (data, status, headers, config) {
-        $scope.hclusterList = data.data;
+      $http.get('/mcluster/list?key=&&currentPage=1&&recordsPerPage=15&&mclusterName=&&hclusterName=&&userName=&&status=&_=1439539626972').success(function (data, status, headers, config) {
+        $scope.hclusterList = data.data.data;
       }).error(function (data, status, headers, config) {
 
       });
