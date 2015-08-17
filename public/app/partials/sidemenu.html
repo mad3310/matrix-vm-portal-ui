@@ -1,15 +1,23 @@
 <div class="side-menu-view" ng-controller="SideMenuController">
     <ul class="side-menu">
-        <li class="menu-item" ng-repeat="r in routes">
+        <li class="menu-item" ng-class="{active:isActive(r.url)}" ng-repeat="r in routes">
             <a href="#{{r.url}}">
+                <i class="{{r.icon}}"></i>
                 <span>{{r.title}}</span>
+                <span class="arrow" ng-if="r.subRoutes != null"></span>
             </a>
-            <ul class="submenu">
-                <li class="submenu-item" ng-repeat="sr in r.subRoutes">
-                    <a href="#{{sr.url}}">{{sr.title}}</a>
-                    <ul class="sub-submenu">
-                        <li class="sub-submenu-item" ng-repeat="ssr in sr.subRoutes">
-                            <a href="#{{ssr.url}}">{{ssr.title}}</a>
+            <ul class="submenu" ng-if="r.subRoutes != null">
+                <li class="submenu-item" ng-class="{active: isActive(sr.url)}" ng-repeat="sr in r.subRoutes">
+                    <a href="#{{sr.url}}" >
+                        <i class="fa fa-circle"></i>
+                        <span>{{sr.title}}</span>
+                        <span class="arrow" ng-if="sr.subSubRoutes != null"></span>
+                    </a>
+                    <ul class="sub-submenu"  ng-if="sr.subSubRoutes != null">
+                        <li class="sub-submenu-item" ng-class="{active: isActive(ssr.url)}" ng-repeat="ssr in sr.subSubRoutes">
+                            <a href="#{{ssr.url}}">
+                                <span>{{ssr.title}}</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
