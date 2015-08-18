@@ -1,22 +1,16 @@
 <div class="container-cluster-view" ng-controller="rds.cluster-manage.ContainerClusterCrtl">
-    <div class="operate-panel">
-        <div class="col-2">
-            <input type="text" class="form-control" placeholder="container集群名称">
+    <div class="le-row operate-panel">
+        <div class="le-col-2">
+            <input type="text" class="le-form-control" placeholder="container集群名称">
         </div>
-        <div class="col-2">
-            <select class="form-control">
-                <option value="">请选择状态</option>
-                <option value="1">运行中</option>
-                <option value="2">创建中</option>
-                <option value="3">创建失败</option>
-                <option value="5">异常</option>
-                <option value="7">启动中</option>
-                <option value="8">停止中</option>
-                <option value="9">已停止</option>
-                <option value="10">删除中</option>
-                <option value="13">危险</option>
-                <option value="14">严重危险</option>
-            </select>
+        <div class="le-col-2">
+            <span>{{selectedStatus.selected}}</span>
+            <ui-select ng-model="selectedStatus.selected" theme="bootstrap">
+                <ui-select-match placeholder="请选择状态">{{$select.selected.text}}</ui-select-match>
+                <ui-select-choices repeat="status in allStatus | propsFilter: {text: $select.search}">
+                    <div>{{status.text}}</div>
+                </ui-select-choices>
+            </ui-select>
         </div>
     </div>
     <div class="grid">
@@ -47,7 +41,8 @@
                     </label>
                 </td>
                 <td><a class="link" href="#/detail/mcluster/{{hc.id}}">{{hc.mclusterName}}</a></td>
-                <td class="hidden-480"><a class="link" href="/detail/hcluster/21">{{hc.hcluster.hclusterNameAlias}}</a></td>
+                <td class="hidden-480"><a class="link" href="/detail/hcluster/21">{{hc.hcluster.hclusterNameAlias}}</a>
+                </td>
                 <td class="hidden-480">系统创建</td>
                 <td>letv_shop</td>
                 <td class="hidden-480">{{hc.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
