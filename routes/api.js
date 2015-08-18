@@ -6,6 +6,7 @@ var router = express.Router();
 var mockOperate = require('../lib/mock-operate');
 var auth = require('../lib/auth');
 var operate = new mockOperate();
+var getData = require('../data/get-data');
 
 router.post('/login', function (req, res, next) {
   var loginInfo = req.body;
@@ -18,7 +19,7 @@ router.post('/vm/create', function (req, res, next) {
   operate.createVm(req.body);
   res.status(200).end();
 });
-router.get('/vm/list', function (req, res, next) {
+router.get('/vm/list', getData.getMclusterList(), function (req, res, next) {
   var data = operate.getVmList();
   res.status(200).send(data);
 });
