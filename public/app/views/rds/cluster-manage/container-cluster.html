@@ -1,10 +1,9 @@
 <div class="container-cluster-view" ng-controller="rds.cluster-manage.ContainerClusterCrtl">
     <div class="le-row operate-panel">
         <div class="le-col-2">
-            <input type="text" ng-model="mclusterName" class="le-form-control" placeholder="container集群名称">
+            <input type="text" ng-model="searchMclusterName" class="le-form-control" placeholder="container集群名称">
         </div>
         <div class="le-col-2">
-            <span>{{selectedPhysicalCluster.selected}}</span>
             <ui-select ng-model="selectedPhysicalCluster.selected" theme="bootstrap">
                 <ui-select-match placeholder="所属物理机集群">{{$select.selected.text}}</ui-select-match>
                 <ui-select-choices repeat="cluster in physicalClusterList | propsFilter: {text: $select.search}">
@@ -13,7 +12,6 @@
             </ui-select>
         </div>
         <div class="le-col-2">
-            <span>{{selectedUser.selected}}</span>
             <ui-select ng-model="selectedUser.selected" theme="bootstrap">
                 <ui-select-match placeholder="所属用户">{{$select.selected.text}}</ui-select-match>
                 <ui-select-choices repeat="user in userList | propsFilter: {text: $select.search}">
@@ -22,7 +20,6 @@
             </ui-select>
         </div>
         <div class="le-col-2">
-            <span>{{selectedStatus.selected}}</span>
             <ui-select ng-model="selectedStatus.selected" theme="bootstrap">
                 <ui-select-match placeholder="请选择状态">{{$select.selected.text}}</ui-select-match>
                 <ui-select-choices repeat="status in statusList | propsFilter: {text: $select.search}">
@@ -30,55 +27,46 @@
                 </ui-select-choices>
             </ui-select>
         </div>
+        <div class="le-col-2">
+            <button class="btn btn-primary" ng-click="doFilter()">筛选</button>
+            <button class="btn btn-default" ng-click="doClear()">清除</button>
+        </div>
     </div>
     <div class="grid">
-        <table id="mcluster_list" class="table table-striped table-bordered table-hover">
+        <table class="table table-bordered table-hover">
             <thead>
             <tr>
-                <th class="center">
-                    <label class="position-relative">
-                        <input type="checkbox" class="ace">
-                        <span class="lbl"></span>
-                    </label>
-                </th>
                 <th>Container集群名称</th>
-                <th class="hidden-480">所属物理机集群</th>
-                <th class="hidden-480">类型</th>
+                <th>所属物理机集群</th>
+                <th>类型</th>
                 <th>所属用户</th>
-                <th class="hidden-480">创建时间</th>
+                <th>创建时间</th>
                 <th>当前状态</th>
                 <th>操作</th>
             </tr>
             </thead>
             <tbody id="tby">
-            <tr ng-repeat="hc in hclusterList">
-                <td class="center">
-                    <label class="position-relative">
-                        <input name="mcluster_id" value="{{hc.id}}" type="checkbox" class="ace">
-                        <span class="lbl"></span>
-                    </label>
-                </td>
-                <td><a class="link" href="#/detail/mcluster/{{hc.id}}">{{hc.mclusterName}}</a></td>
-                <td class="hidden-480"><a class="link" href="/detail/hcluster/21">{{hc.hcluster.hclusterNameAlias}}</a>
-                </td>
-                <td class="hidden-480">系统创建</td>
-                <td>letv_shop</td>
-                <td class="hidden-480">{{hc.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-                <td>运行中</td>
+            <tr ng-repeat="mc in mclusterList">
+                <td><a class="link" href="/detail/mcluster/{{mc.id}}">{{mc.mclusterName}}</a></td>
                 <td>
-                    <div class="hidden-sm hidden-xs  action-buttons">
-                        <a class="green" href="#" onclick="startMcluster(this)" onfocus="this.blur();" title="启动"
-                           data-toggle="tooltip" data-placement="right">
-                            <i class="ace-icon fa fa-play-circle-o bigger-130"></i>
-                        </a>
-                        <a class="blue" href="#" onclick="stopMcluster(this)" onfocus="this.blur();" title="停止"
-                           data-toggle="tooltip" data-placement="right">
-                            <i class="ace-icon fa fa-power-off bigger-120"></i>
-                        </a>
-                    </div>
+                    <a class="link" href="/detail/hcluster/{{mc.hclusterId}}">{{mc.hcluster.hclusterNameAlias}}</a>
+                </td>
+                <td>{{mc.type | mclusterTypeFilter}}</td>
+                <td>{{mc.createUserModel.userName}}</td>
+                <td>{{mc.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                <td>{{mc.status | mclusterStatusFilter}}</td>
+                <td>
+                    <a href="javascript:void(0);" title="启动" ng-click="startMcluster(mc)">
+                        <i class="fa fa-play-circle-o"></i>
+                    </a>
+                    <a href="javascript:void(0);" title="停止" ng-click="stopMcluster(mc)">
+                        <i class="fa fa-power-off"></i>
+                    </a>
                 </td>
             </tr>
             </tbody>
         </table>
+        <pagination boundary-links="true" direction-links="false" ng-change="onPageChange()" items-per-page="pageSize" total-items="totalItems" ng-model="currentPage" class="pagination-sm" first-text="&laquo;" last-text="&raquo;">
+        </pagination>
     </div>
 </div>

@@ -5,9 +5,11 @@
   angular.module('services').factory('Config', [function () {
     var config = {};
     config.url = {
-      mclusterList: '/mcluster/list?key=&&currentPage=1&&recordsPerPage=15&&mclusterName=&&hclusterName=&&userName=&&status=&_=1439539626972',
-      userList: '/user',
-      hclusterList:'/hcluster'
+      mcluster_list: '/mcluster/list',
+      user_list: '/user',
+      hcluster_list: '/hcluster',
+      mcluster_start: '/mcluster/start',
+      mcluster_stop: '/mcluster/stop',
     };
     config.mclusterStatuses = [
       {"text": "请选择状态", "value": ""},

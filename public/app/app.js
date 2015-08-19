@@ -6,6 +6,7 @@
     //angular
     'ngRoute',
     'ui.select',
+    'ui.bootstrap',
     //app
     'controllers',
     'services',
