@@ -3,12 +3,5 @@
  */
 (function(){
     var servicesModule = angular.module('services', []);
-    servicesModule.factory('RouterService', [
-        function () {
-            return [
-                {url:'/',templateUrl:'/app/templates/vm-list.html'},
-                {url:'/vm/create',templateUrl:'/app/templates/vm-create.html'}
-            ];
-        }]);
 })();
 

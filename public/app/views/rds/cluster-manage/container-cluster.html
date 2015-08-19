@@ -1,13 +1,31 @@
 <div class="container-cluster-view" ng-controller="rds.cluster-manage.ContainerClusterCrtl">
     <div class="le-row operate-panel">
         <div class="le-col-2">
-            <input type="text" class="le-form-control" placeholder="container集群名称">
+            <input type="text" ng-model="mclusterName" class="le-form-control" placeholder="container集群名称">
+        </div>
+        <div class="le-col-2">
+            <span>{{selectedPhysicalCluster.selected}}</span>
+            <ui-select ng-model="selectedPhysicalCluster.selected" theme="bootstrap">
+                <ui-select-match placeholder="所属物理机集群">{{$select.selected.text}}</ui-select-match>
+                <ui-select-choices repeat="cluster in physicalClusterList | propsFilter: {text: $select.search}">
+                    <div>{{cluster.text}}</div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="le-col-2">
+            <span>{{selectedUser.selected}}</span>
+            <ui-select ng-model="selectedUser.selected" theme="bootstrap">
+                <ui-select-match placeholder="所属用户">{{$select.selected.text}}</ui-select-match>
+                <ui-select-choices repeat="user in userList | propsFilter: {text: $select.search}">
+                    <div>{{user.text}}</div>
+                </ui-select-choices>
+            </ui-select>
         </div>
         <div class="le-col-2">
             <span>{{selectedStatus.selected}}</span>
             <ui-select ng-model="selectedStatus.selected" theme="bootstrap">
                 <ui-select-match placeholder="请选择状态">{{$select.selected.text}}</ui-select-match>
-                <ui-select-choices repeat="status in allStatus | propsFilter: {text: $select.search}">
+                <ui-select-choices repeat="status in statusList | propsFilter: {text: $select.search}">
                     <div>{{status.text}}</div>
                 </ui-select-choices>
             </ui-select>

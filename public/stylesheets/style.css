@@ -1,3 +1,9 @@
+/*begin override bootstrap style*/
+.btn{
+    border-radius: 0;
+}
+/*begin override bootstrap style*/
+
 /*begin header style*/
 .header {
     height: 50px;
