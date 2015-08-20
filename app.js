@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require("request");
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
@@ -41,14 +42,25 @@ app.use(function (req, res, next) {
 
 // development error handler
 // will print stacktrace
+console.log(app.get('env'));
 if (app.get('env') === 'development') {
-  app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        if(err.status === 404){
+            var p = 'http://'+'127.0.0.1:8080'+req.url;
+//            req.headers['Host'] = req.headers.host;
+            request({
+                method:req.method,
+                url:p,
+                headers:req.headers
+            }).pipe(res);
+        }else{
+            res.render('error', {
+                message: err.message,
+                error: err
+            });
+        }
     });
-  });
 }
 
 // production error handler
