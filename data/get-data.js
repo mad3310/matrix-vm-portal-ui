@@ -5,28 +5,20 @@ var options = {
     hostname:config.BACK_END_SERVER_NAME,
     port:config.BACK_END_SERVER_PORT,
     path:'',
-    method:'get',
+    method:'GET',
     headers:{}
 };
 
-// exports.getUserInfo = function (){
-//     return function(req, res, next){
-//         getServerData.getData('/user', req, callback);
-//     };
-//     function callback(data, req){
-//         console.log(data);
-//     }
-// };
-exports.getMclusterList = function (){
-    options.path = '/mcluster/list';
+exports.getUserInfo = function (){
+    options.path = config.USER_INFO_PATH;
     return function(req, res, next){
         getServerData.getData(options, req, res, callback);
         function callback(data, req){
             if(data){
-                req.extraData.mclusterList = data;
+                req.extraData.userInfo = data.user;
                 next();
             }else{
-
+                next();
             }
         };
     };

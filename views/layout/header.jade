@@ -1,0 +1,21 @@
+html
+  body
+    .header
+      a.header-brand(href='/')
+        img.brand-logo(src='/images/brand-logo.png')
+        span
+          | PAAS portal
+          small beta
+      .dropdown.pull-right.account
+        if username
+          a.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+            | #{username}
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='javascript:void(0);') 账户信息
+            li
+              a(href='/account/logout') 退出
+        else
+          a(href='https://login.lecloud.com/index?redirect_uri=http://localhost:8080/oauth/callback;')
+            | 登录
