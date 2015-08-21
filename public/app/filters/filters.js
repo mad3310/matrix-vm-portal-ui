@@ -61,4 +61,17 @@
     }
   }]);
 
+  filtersModule.filter('sideMenuUrlFilter', [function () {
+    return function (route) {
+      var out = '';
+      if (route.abstract) {
+        out = 'javascript:void(0);';
+      }
+      else {
+        out = route.isSpaUrl ? '#' + route.url : route.url;
+      }
+      return out || '未知';
+    }
+  }]);
+
 }())
