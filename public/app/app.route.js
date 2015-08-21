@@ -25,7 +25,7 @@
           });
         }
       });
-      $routeProvider.otherwise({redirectTo: '/dashboard'});
+      $routeProvider.otherwise({redirectTo: '/rds/cluster/container-cluster'});
     },
     getRoutes = function () {
       return [
@@ -33,7 +33,6 @@
           url: '/dashboard',
           title: 'Dashboard',
           icon: 'fa fa-tachometer',
-          isSpaUrl:true,
           config: {
             template: 'Dashboard'
           }
@@ -124,7 +123,7 @@
                 }
               ]
             }, {
-              url: '/gce/lit',
+              url: '/list/gce/server',
               title: 'GCE列表',
               config: {
                 template: 'GCE列表'

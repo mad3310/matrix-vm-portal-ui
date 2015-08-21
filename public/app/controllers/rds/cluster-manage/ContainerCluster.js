@@ -37,9 +37,19 @@
 
       $scope.startMcluster = function (mcluster) {
         HttpService.doPost(Config.url.mcluster_start, {mclusterId: mcluster.id}).success(function (data, status, headers, config) {
+          return data;
+          toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
         });
       };
       $scope.stopMcluster = function (mcluster) {
+        HttpService.doPost(Config.url.mcluster_stop, {mclusterId: mcluster.id}).success(function (data, status, headers, config) {
+          return data;
+          toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
+        });
+      };
+
+      $scope.deleteMcluster = function (mcluster) {
+        return mcluster;
       };
 
       var refreshMclusterList = function () {
