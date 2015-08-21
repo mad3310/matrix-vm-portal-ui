@@ -4,6 +4,12 @@
 }
 /*begin override bootstrap style*/
 
+/*begin override toaster style*/
+.toast-bottom-right{
+    bottom: 30px;
+}
+/*begin override toaster style*/
+
 /*begin header style*/
 .header {
     height: 50px;
@@ -138,7 +144,7 @@
     margin-bottom: 8px;
 }
 
-.side-menu-view .side-menu .menu-item.active .submenu {
+.side-menu-view .side-menu .menu-item.open .submenu {
     display: block;
 }
 
@@ -212,7 +218,7 @@
     margin-bottom: 4px;
 }
 
-.side-menu-view .side-menu .menu-item .submenu .submenu-item.active .sub-submenu {
+.side-menu-view .side-menu .menu-item .submenu .submenu-item.open .sub-submenu {
     display: block;
 }
 

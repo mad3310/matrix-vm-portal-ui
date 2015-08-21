@@ -7,15 +7,36 @@
   controllersModule.controller('SideMenuController', ['$scope', '$location', 'routes',
     function ($scope, $location, routes) {
       var isActive = function (url) {
-        return $location.path().indexOf(url) > -1;
-      };
-
+          return $location.path().indexOf(url) > -1;
+        },
+        openSubMenu = function (url) {
+          angular.forEach(routes, function (value, key){
+            if(url==value.url){
+              value.isOpen=true;
+            }
+            else{
+              value.isOpen=false;
+            }
+          });
+        },
+        openSubSubMenu = function (url,parentRoute) {
+          angular.forEach(parentRoute.subRoutes, function (value, key){
+            if(url==value.url){
+              value.isOpen=true;
+            }
+            else{
+              value.isOpen=false;
+            }
+          });
+        };
       $scope.routes = routes;
       $scope.isActive = isActive;
+      $scope.openSubMenu = openSubMenu;
+      $scope.openSubSubMenu = openSubSubMenu;
     }]);
 
-  controllersModule.controller('VmListController', ['$scope', '$http',
-    function ($scope, $http) {
+  controllersModule.controller('VmListController', ['$scope', '$http','toaster',
+    function ($scope, $http,toaster) {
       $scope.p1Name = 'p1';
       $scope.p2Name = 'p2';
       $scope.vmList = [];
@@ -26,6 +47,7 @@
       };
       $scope.openModalBox = function () {
         $scope.leModalOption.isShow = true;
+        toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
       };
       $scope.getVmList = function () {
         $http.get('/api/vm/list').
