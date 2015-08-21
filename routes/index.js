@@ -3,7 +3,7 @@ var router = express.Router();
 var getData = require('../data/get-data');
 
 /* GET home page. */
-router.get('/list/mcluster',getData.getUserInfo(), function (req, res, next) {
+router.get('/list/mcluster', function (req, res, next) {
     if(req.extraData && req.extraData.userInfo){
         res.render('index', {title: 'Express', username:req.extraData.userInfo.userName});
     }else{
