@@ -37,14 +37,22 @@
 
       $scope.startMcluster = function (mcluster) {
         HttpService.doPost(Config.url.mcluster_start, {mclusterId: mcluster.id}).success(function (data, status, headers, config) {
-          return data;
-          toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
+          if(data.result==1){
+            toaster.pop('success', null, '启动成功', 2000, 'trustedHtml');
+          }
+          else{
+            toaster.pop('error', null, '启动失败', 2000, 'trustedHtml');
+          }
         });
       };
       $scope.stopMcluster = function (mcluster) {
         HttpService.doPost(Config.url.mcluster_stop, {mclusterId: mcluster.id}).success(function (data, status, headers, config) {
-          return data;
-          toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
+          if(data.result==1){
+            toaster.pop('success', null, '停止成功', 2000, 'trustedHtml');
+          }
+          else{
+            toaster.pop('error', null, '停止失败', 2000, 'trustedHtml');
+          }
         });
       };
 
