@@ -2,15 +2,15 @@ var getServerData = require('../lib/request-server');
 var config = require('../config/setup.js');
 
 var options = {
-    hostname:config.BACK_END_SERVER_NAME,
-    port:config.BACK_END_SERVER_PORT,
+    hostname:config.backEndServerName,
+    port:config.backEndServerPort,
     path:'',
     method:'GET',
     headers:{}
 };
 
 exports.getUserInfo = function (){
-    options.path = config.USER_INFO_PATH;
+    options.path = config.userInfoPath;
     return function(req, res, next){
         getServerData.getData(options, req, res, callback);
         function callback(data, req){

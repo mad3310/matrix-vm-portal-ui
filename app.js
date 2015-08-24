@@ -4,11 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var getData = require('./data/get-data');
 
+var proxy = require ('./routes/proxy');
 var routes = require('./routes/index');
 var api = require('./routes/api');
-var proxy = require ('./routes/proxy');
 
 var app = express();
 
@@ -19,15 +18,6 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(getData.getUserInfo(), function (req, res, next) {
-    if(req.extraData && req.extraData.userInfo){
-        next();
-    }else{
-        res.redirect('https://login.lecloud.com/index?redirect_uri=http://localhost:3000/oauth/callback;');
-    }
-    // var authResult = true;
-    // if (authResult == false) return next(new Error('权限不足'));
-});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());

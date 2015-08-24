@@ -1,7 +1,17 @@
 'use strict';
 
 module.exports = {
-    BACK_END_SERVER_NAME : 'localhost',
-    BACK_END_SERVER_PORT : '8080',
-    USER_INFO_PATH:'/user/info'
+    backEndServerName : 'localhost',
+    backEndServerPort : '8080',
+    userInfoPath:'/user/info',
+    //页面白名单请求
+    whileList : [
+        '/dashboard',
+        '/list/*',
+        '/view/mcluster/monitor'
+    ],
+    //数据接口白名单
+    whileApiList : [
+        /^(?!(\/list|\/view)).*?$/ //不以view、list开头的接口
+    ]
 };
