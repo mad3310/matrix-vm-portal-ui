@@ -3,10 +3,10 @@
  */
 var express = require('express');
 var router = express.Router();
+
 var mockOperate = require('../lib/mock-operate');
 var auth = require('../lib/auth');
 var operate = new mockOperate();
-var getData = require('../data/get-data');
 
 
 router.post('/login', function (req, res, next) {

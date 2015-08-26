@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var getData = require('../data/get-data');
 var httpProxy = require('http-proxy');
+
 var config = require("../config/setup.js");
 
 var serverAddr = 'http://'+config.backEndServerName+':'+config.backEndServerPort;
@@ -22,8 +22,8 @@ for(var i = 0, len = config.whileList.length; i < len; i++){
 for(i = 0, len = config.whileApiList.length; i < len; i++){
     router.all(config.whileApiList[i], function(req, res, next) {
         proxy.web(req, res, function(e) {
-            var err = new Error('api proxy to backend server error:' + e.message);
-            err.status = 500;
+            var err = new Error('There was an error proxying your request');
+            err.status = 502;
             next(err);
         });
     });
