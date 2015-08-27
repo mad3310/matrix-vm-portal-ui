@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    backEndServerName : 'localhost',
-    backEndServerPort : '8080',
+    backEndServerName : '10.200.91.144',
+    backEndServerPort : '30003',
     userInfoPath:'/user/info',
     //页面白名单请求
     whileList : [
