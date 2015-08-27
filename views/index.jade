@@ -6,23 +6,6 @@ block content
     div(class='content-wrapper')
       div(class='content',ng-view )
     div(class='clearfix')
-block append script-vendor
-  script(type='text/javascript',src='/javascripts/angular.js')
-  script(type='text/javascript',src='/javascripts/angular-animate.js')
-  script(type='text/javascript',src='/javascripts/angular-route.js')
-  script(type='text/javascript',src='/javascripts/select.js')
-  script(type='text/javascript',src='/javascripts/ui-bootstrap-tpls-0.13.3.js')
-  script(type='text/javascript',src='/javascripts/toaster.js')
-block script-app
-  script(type='text/javascript',src='/app/app.js')
-  script(type='text/javascript',src='/app/app.route.js')
-  script(type='text/javascript',src='/app/controllers/controllers.js')
-  script(type='text/javascript',src='/app/controllers/rds/cluster-manage/ContainerCluster.js')
-  script(type='text/javascript',src='/app/services/services.js')
-  script(type='text/javascript',src='/app/services/Config.js')
-  script(type='text/javascript',src='/app/services/HttpService.js')
-  script(type='text/javascript',src='/app/directives/directives.js')
-  script(type='text/javascript',src='/app/filters/filters.js')
-  script(type='text/javascript').
-    var viewHeight = $(window).height() - 50 - 30;
-    $('.content').css('min-height',viewHeight);
+
+block script
+  script(type='text/javascript',src='/javascripts/require.js',data-main='/app/main.js')

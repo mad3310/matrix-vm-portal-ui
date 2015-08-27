@@ -1,10 +1,9 @@
 /**
  * Created by jiangfei on 2015/7/22.
  */
-(function () {
-    var directivesModule = angular.module('directives', []);
+define(['/app/directives/app.directive.js'],function (directiveModule) {
 
-    directivesModule.directive('leModal', function () {
+    directiveModule.directive('leModal', function () {
         return {
             restrict: 'AE',
             scope: {
@@ -30,4 +29,4 @@
         };
     });
 
-})();
+});

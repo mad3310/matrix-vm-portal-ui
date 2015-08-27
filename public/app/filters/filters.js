@@ -1,10 +1,9 @@
 /**
  * Created by jiangfei on 2015/8/18.
  */
-(function () {
-  var filtersModule = angular.module('filters', []);
+define(['filters/app.filter'],function (filterModule) {
 
-  filtersModule.filter('propsFilter', function () {
+  filterModule.filter('propsFilter', function () {
     return function (items, props) {
       var out = [];
 
@@ -35,7 +34,7 @@
     }
   });
 
-  filtersModule.filter('mclusterTypeFilter', function () {
+  filterModule.filter('mclusterTypeFilter', function () {
     return function (input) {
       var out = '';
       if (input) {
@@ -47,7 +46,7 @@
     }
   });
 
-  filtersModule.filter('mclusterStatusFilter', ['Config', function (Config) {
+  filterModule.filter('mclusterStatusFilter', ['Config', function (Config) {
     var allStatuses = Config.mclusterStatuses;
     return function (input) {
       var out = '';
@@ -61,7 +60,7 @@
     }
   }]);
 
-  filtersModule.filter('sideMenuUrlFilter', [function () {
+  filterModule.filter('sideMenuUrlFilter', [function () {
     return function (route) {
       var out = '';
       if (route.abstract) {
@@ -74,4 +73,4 @@
     }
   }]);
 
-}())
+});

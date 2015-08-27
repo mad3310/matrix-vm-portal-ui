@@ -1,10 +1,9 @@
 /**
  * Created by jiangfei on 2015/7/21.
  */
-(function () {
-  var controllersModule = angular.module('controllers', []);
+define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCluster'],function (controllerModule) {
 
-  controllersModule.controller('SideMenuController', ['$scope', '$location', 'routes',
+  controllerModule.controller('SideMenuController', ['$scope', '$location', 'routes',
     function ($scope, $location, routes) {
       var isActive = function (url) {
           return $location.path().indexOf(url) > -1;
@@ -35,7 +34,7 @@
       $scope.openSubSubMenu = openSubSubMenu;
     }]);
 
-  controllersModule.controller('VmListController', ['$scope', '$http','toaster',
+  controllerModule.controller('VmListController', ['$scope', '$http','toaster',
     function ($scope, $http,toaster) {
       $scope.p1Name = 'p1';
       $scope.p2Name = 'p2';
@@ -59,7 +58,7 @@
       };
     }]);
 
-  controllersModule.controller('VmCreateController', ['$scope', '$http', '$location',
+  controllerModule.controller('VmCreateController', ['$scope', '$http', '$location',
     function ($scope, $http, $location) {
       $scope.name = '';
       $scope.description = '';
@@ -81,4 +80,4 @@
           });
       };
     }]);
-})();
+});

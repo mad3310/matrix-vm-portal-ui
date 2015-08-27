@@ -1,10 +1,8 @@
 /**
  * Created by jiangfei on 2015/7/22.
  */
-(function () {
+define(['app'],function (app) {
   'use strict';
-
-  var app = angular.module('myApp');
 
   var routeConfigurator = function ($routeProvider, routes) {
       var setRoute = function (routeConfig) {
@@ -138,4 +136,4 @@
 
   app.config(['$routeProvider', 'routes', routeConfigurator]);
 
-})();
+});

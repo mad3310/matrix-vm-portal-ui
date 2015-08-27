@@ -1,8 +1,8 @@
 /**
  * Created by jiangfei on 2015/8/19.
  */
-(function () {
-  angular.module('services').factory('HttpService', ['$http',
+define(['services/app.service'],function (serviceModule) {
+  serviceModule.factory('HttpService', ['$http',
     function ($http) {
       var service = {};
       service.doGet = function (url, option) {
@@ -13,4 +13,4 @@
       };
       return service;
     }]);
-}())
+});

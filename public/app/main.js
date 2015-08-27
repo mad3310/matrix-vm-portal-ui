@@ -1,31 +1,56 @@
 require.config({
-    paths: {
-        //vendor
-        'jquery': '/javascripts/jquery-1.11.3.js',
-        'angular': '/javascripts/angular.js',
-        'bootstrap': '/javascripts/bootstrap.js',
-        'angular-route': '/javascripts/angular-route.js',
-        //js文件
-        'app': '/app/app.js',
-        'app.router': '/app/app.route.js'
+  paths: {
+    //vendor
+    'jquery': '/javascripts/jquery-1.11.3',
+    'bootstrap': '/javascripts/bootstrap',
+    'common': '/javascripts/common',
+    'angular': '/javascripts/angular',
+    'angular-animate': '/javascripts/angular-animate',
+    'angular-route': '/javascripts/angular-route',
+    'ui-select': '/javascripts/select',
+    'ui-bootstrap': '/javascripts/ui-bootstrap-tpls-0.13.3',
+    'ng-toaster': '/javascripts/toaster',
+    //js文件
+    'app': '/app/app',
+    'app.router': '/app/app.route'
+  },
+  shim: {
+    'angular': {
+      exports: 'angular'
     },
-    shim: {
-        'angular': {
-            exports: 'angular'
-        },
-        'angular-route': {
-            deps: ['angular'],
-            exports: 'angular-route'
-        },
-        'bootstrap': {
-            deps: ['jquery'],
-            exports: 'bootstrap'
-        }
+    'angular-animate': {
+      deps: ['angular'],
+      exports: 'angular-animate'
+    },
+    'angular-route': {
+      deps: ['angular'],
+      exports: 'angular-route'
+    },
+    'ui-select': {
+      deps: ['angular'],
+      exports: 'ui-select'
+    },
+    'ui-bootstrap': {
+      deps: ['angular'],
+      exports: 'ui-bootstrap'
+    },
+    'ng-toaster': {
+      deps: ['angular','angular-animate'],
+      exports: 'ng-toaster'
+    },
+    'bootstrap': {
+      deps: ['jquery'],
+      exports: 'bootstrap'
+    },
+    'common': {
+      deps: ['jquery'],
+      exports: 'common'
     }
+  }
 });
 
-require([ 'jquery','angular','bootstrap','app','app.router'],
-    function(jquery,angular){
-        angular.bootstrap(document,['myApp']);
-    }
+require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router'],
+  function (jquery, angular) {
+    angular.bootstrap(document, ['myApp']);
+  }
 );

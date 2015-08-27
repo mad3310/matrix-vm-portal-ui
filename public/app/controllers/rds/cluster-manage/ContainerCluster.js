@@ -1,8 +1,8 @@
 /**
  * Created by jiangfei on 2015/8/12.
  */
-(function () {
-  angular.module('controllers').controller('rds.cluster-manage.ContainerClusterCrtl', ['$scope', 'Config', 'HttpService',
+define(['controllers/app.controller'],function (controllerModule) {
+  controllerModule.controller('rds.cluster-manage.ContainerClusterCrtl', ['$scope', 'Config', 'HttpService',
     function ($scope, Config, HttpService) {
       $scope.searchMclusterName = '';
 
@@ -91,4 +91,4 @@
       refreshMclusterList();
 
     }]);
-}())
+});

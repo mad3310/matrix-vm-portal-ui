@@ -1,8 +1,8 @@
 /**
  * Created by jiangfei on 2015/8/19.
  */
-(function () {
-  angular.module('services').factory('Config', [function () {
+define(['services/app.service'],function (serviceModule) {
+  serviceModule.factory('Config', [function () {
     var config = {};
     config.url = {
       mcluster_list: '/mcluster/list',
@@ -26,4 +26,4 @@
     ];
     return config;
   }]);
-}())
+});
