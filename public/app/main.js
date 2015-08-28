@@ -55,7 +55,7 @@ require.config({
   }
 });
 
-require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router'],
+require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router'],//app.mock
   function (jquery, angular) {
     angular.bootstrap(document, ['myApp']);
   }
