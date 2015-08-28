@@ -1,7 +1,7 @@
 /**
  * Created by jiangfei on 2015/7/21.
  */
-define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCluster'],function (controllerModule) {
+define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCluster', 'controllers/billing/subscribe/subscribe'],function (controllerModule) {
 
   controllerModule.controller('SideMenuController', ['$scope', '$location', 'routes',
     function ($scope, $location, routes) {
