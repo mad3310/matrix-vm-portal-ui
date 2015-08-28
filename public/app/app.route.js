@@ -129,6 +129,71 @@ define(['app'],function (app) {
             }
           ]
         },//end rds routes
+        {//start billing routes
+          url: '/billing',
+          title: '计费管理',
+          icon: 'fa fa-money',
+          abstract: true,
+          subRoutes: [
+            {
+              url: '/billing/baseElements',
+              title: '基础元素管理',
+              abstract: true,
+              subSubRoutes: [
+                {
+                  url: '/billing/baseElements/baseElement',
+                  title: '计费元素维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: '/app/views/billing/baseElement.html'
+                  }
+                }, {
+                  url: '/billing/baseElements/specification',
+                  title: '元素规格维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: '/app/views/billing/ElementSpecification.html'
+                  }
+                },{
+                  url: '/billing/baseElements/region',
+                  title: '地域维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: '/app/views/billing/region.html'
+                  }
+                }
+              ]
+            }, {
+              url: '/billing/products',
+              title: '产品管理',
+              abstract: true,
+              subSubRoutes: [
+                {
+                  url: '',
+                  title: '产品维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: ''
+                  }
+                }, {
+                  url: '',
+                  title: '产品配置维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: ''
+                  }
+                },{
+                  url: '',
+                  title: '产品价格维护',
+                  isSpaUrl:true,
+                  config: {
+                    templateUrl: ''
+                  }
+                }
+              ]
+            }
+          ]
+        }
       ];
     };
 
