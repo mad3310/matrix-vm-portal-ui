@@ -10,9 +10,11 @@ require.config({
     'ui-select': '/javascripts/select',
     'ui-bootstrap': '/javascripts/ui-bootstrap-tpls-0.13.3',
     'ng-toaster': '/javascripts/toaster',
+    'ng-rap': '/javascripts/ng-rap.min',
     //js文件
     'app': '/app/app',
-    'app.router': '/app/app.route'
+    'app.router': '/app/app.route',
+    'app.mock': '/app/app.mock'
   },
   shim: {
     'angular': {
@@ -37,6 +39,10 @@ require.config({
     'ng-toaster': {
       deps: ['angular','angular-animate'],
       exports: 'ng-toaster'
+    },
+    'ng-rap': {
+      deps: ['angular'],
+      exports: 'ng-rap'
     },
     'bootstrap': {
       deps: ['jquery'],
