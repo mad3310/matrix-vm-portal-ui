@@ -10,7 +10,7 @@ require.config({
     'ui-select': '/javascripts/select',
     'ui-bootstrap': '/javascripts/ui-bootstrap-tpls-0.13.3',
     'ng-toaster': '/javascripts/toaster',
-    'ng-rap': '/javascripts/ng-rap.min',
+    'ng-rap': '/javascripts/ng-rap',
     //js文件
     'app': '/app/app',
     'app.router': '/app/app.route',
@@ -55,7 +55,7 @@ require.config({
   }
 });
 
-require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router', 'app.mock'],//app.mock
+require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router', 'app.mock'],//to enable ngrap,add 'app.mock' to require dependency
   function (jquery, angular) {
     angular.bootstrap(document, ['myApp']);
   }
