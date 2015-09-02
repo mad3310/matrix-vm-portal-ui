@@ -13,5 +13,9 @@ module.exports = {
     //数据接口白名单
     whileApiList : [
         /^(?!(\/list|\/view)).*?$/ //不以view、list开头的接口
+    ],
+    mockWhileList: [
+        '/billing/subscription',
+        '/billing/order'
     ]
 };

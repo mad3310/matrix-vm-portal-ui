@@ -55,7 +55,7 @@ require.config({
   }
 });
 
-require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router', 'app.mock'],//to enable ngrap,add 'app.mock' to require dependency
+require(['jquery', 'angular','common', 'bootstrap', 'app', 'app.router'],//to enable ngrap,add 'app.mock' to require dependency
   function (jquery, angular) {
     angular.bootstrap(document, ['myApp']);
   }

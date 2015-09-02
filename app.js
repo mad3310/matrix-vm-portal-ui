@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var proxy = require ('./routes/proxy');
 var routes = require('./routes/index');
+var mock = require('./routes/mock');
 var api = require('./routes/api');
 var log = require('./lib/log');
 
@@ -27,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api', api);
+
+//mockData proxy
+app.use(mock);
 
 // proxy to backend server request
 app.use(proxy);

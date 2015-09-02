@@ -58,7 +58,7 @@ angular.module('ngRap', [])
 
           if (RAP.router(url)) {
             config.mocked = true;
-            config.url = mockUrl
+              config.url = mockUrl;
           } else if (mode == 0 && isInWhiteList(whiteList, url)) {
             config.needCheck = mockUrl;
           }
@@ -88,7 +88,7 @@ angular.module('ngRap', [])
       },
       response: function(res) {
         var data = res.data;
-        if (ngRap.loaded && !res.config.mocked) {
+        if (ngRap.loaded && res.config.mocked) {
           ngRap.loaded.then(function() {
             if (res.config.needCheck) {
               ngRap.check(res.config.needCheck, data);
