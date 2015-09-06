@@ -1,0 +1,44 @@
+{
+  "result|0-1": 1,
+  "data": {
+    "data|5-15": [
+      {
+        "id|+1":1,
+ 	"createTime":1437644265000,
+	"createUser":{
+                "username|1" :["yaokuo", "liuhao1", "zbz"]
+        },
+	"deleted":false,
+	"updateTime":1437644265000,
+	"updateUser|1-1000":1000,
+        "billingType|0-1":0,
+        "buyNum|1-5":5,
+        "startTime":1437644265000,
+        "endTime":1437644265000,
+        "validityPeriod|1-365":365,
+        "isValid|1-2":1,
+        "product":{
+                "id|+1":101,
+                "name|1":["RDS","VM"]
+        },
+        "region":{
+                "id|+1":201,
+                "name|1":["北京","上海"]
+        }
+      }
+    ],
+    "preId": -1,
+    "nextId": -1,
+    "currentRecord": 0,
+    "startRowPosition": 15,
+    "endRowPosition": 30,
+    "lastPage": true,
+    "totalRecords": 16,
+    "tooManySearchReturn": false,
+    "recordsPerPage": 15,
+    "currentPage": 2,
+    "totalPages": 2
+  },
+  "msgs": ["我错了！_！"],
+  "callback": null
+}

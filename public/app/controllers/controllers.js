@@ -1,7 +1,7 @@
 /**
  * Created by jiangfei on 2015/7/21.
  */
-define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCluster'],function (controllerModule) {
+define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCluster', 'controllers/billing/subscribe/subscribe', 'controllers/billing/bill/bill','controllers/billing/bill/billDetail'],function (controllerModule) {
 
   controllerModule.controller('SideMenuController', ['$scope', '$location', 'routes',
     function ($scope, $location, routes) {
@@ -45,6 +45,10 @@ define(['controllers/app.controller','controllers/rds/cluster-manage/ContainerCl
         isShow: false
       };
       $scope.openModalBox = function () {
+        $http.get('/billing/element').success(function (data, status, headers, config) {
+            return data;
+          }).error(function (data, status, headers, config) {
+          });
         $scope.leModalOption.isShow = true;
         toaster.pop('success', "title", '<ul><li>Render html</li></ul>', 5000, 'trustedHtml');
       };

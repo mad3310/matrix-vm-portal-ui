@@ -23,6 +23,11 @@ define(['app'],function (app) {
           });
         }
       });
+      //非菜单路由
+      $routeProvider.when('/billing/bill/detail', {
+          templateUrl: '/app/views/billing/billDetail.html'
+      });
+
       $routeProvider.otherwise({redirectTo: '/rds/cluster/container-cluster'});
     },
     getRoutes = function () {
@@ -191,7 +196,22 @@ define(['app'],function (app) {
                   }
                 }
               ]
-            }
+            }, {
+                url: '/billing/subscribe',
+                title: '产品订阅',
+                isSpaUrl:true,
+                config: {
+                    templateUrl: '/app/views/billing/subscribe.html'
+                }
+            },
+              {
+                  url: '/billing/bill',
+                  title: '产品订单',
+                  isSpaUrl:true,
+                  config: {
+                      templateUrl: '/app/views/billing/bill.html'
+                  }
+              }
           ]
         }
       ];
