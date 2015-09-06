@@ -1,4 +1,4 @@
-define(['controllers/app.controller','Mock'],function (controllerModule) {
+define(['controllers/app.controller'],function (controllerModule) {
 	controllerModule.controller('billing_baseElement', ['$scope','HttpService', function($scope,HttpService){
 		$scope.itemPerPage=15;
 		$scope.totalItems=0;
@@ -42,20 +42,13 @@ define(['controllers/app.controller','Mock'],function (controllerModule) {
     	// HttpService.doGet('/billing/element').success(function(data){
 	    // 	console.log(data)
 	    // })
-		Mock.mock(/\.json/, {
-		    'list|1-10': [{
-		        'id|+1': 1,
-		        'email': '@EMAIL'
-		    }]
-		})
-		$.ajax({
-		    url: 'hello.json',
-		    dataType: 'json'
-		}).done(function(data, status, jqXHR){
-			console.log(JSON.stringify(data, null, 4))
-		    // $('<pre>').text(JSON.stringify(data, null, 4))
-		    //     .appendTo('body')
-		})
+		// Mock.mock(/\.json/, {
+		//     'list|1-10': [{
+		//         'id|+1': 1,
+		//         'email': '@EMAIL'
+		//     }]
+		// })
+		
 		// HttpService.doGet('hello.json').success(function(data){
 	 //    	console.log(data)
 	 //    })
