@@ -13,8 +13,10 @@ define(['services/app.service'],function (serviceModule) {
 
             //subscribe api
            // subscribe_list: '/monitor/rds/node/health/list'
-            subscribe_list: '/billing/subscription',
-            bill_list: '/billing/order'
+            subscribe_list: '/subscription/list',
+            subscribe_detail: '/subscription/detail/{id}',
+            bill_list: '/order/list',
+            bill_detail: '/order/detail/{id}',
         };
         config.mclusterStatuses = [
             {"text": "请选择状态", "value": ""},

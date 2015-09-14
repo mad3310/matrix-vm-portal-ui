@@ -24,8 +24,11 @@ define(['app'],function (app) {
         }
       });
       //非菜单路由
-      $routeProvider.when('/billing/bill/detail', {
+      $routeProvider.when('/billing/bill/detail/:id', {
           templateUrl: '/app/views/billing/billDetail.html'
+      });
+      $routeProvider.when('/billing/subscribe/detail/:id', {
+          templateUrl: '/app/views/billing/subscribeDetail.html'
       });
 
       $routeProvider.otherwise({redirectTo: '/rds/cluster/container-cluster'});

@@ -89,9 +89,11 @@ define(['filters/app.filter'],function (filterModule) {
         return function (type) {
             var out = '';
             if(type == 0){
-                out = '已支付';
-            }else if(type == 1){
                 out = '未支付';
+            }else if(type == 1){
+                out = '已支付';
+            }else if(type == 2){
+                out = '失效';
             }
             return out || '未知';
         };

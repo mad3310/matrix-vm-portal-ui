@@ -1,43 +1,51 @@
 <div ng-controller="billing.billDetail">
-  <h4>订单所有订阅<span class="label label-default">Label</span></h4>
-    <div class="le-row grid">
-        <table class="table table-bordered table-hover">
-            <thead>
-            <tr>
-                <th>产品名称</th>
-                <th>地域</th>
-                <th>付费方式</th>
-                <th>购买个数</th>
-                <th>创建时间</th>
-                <th>开始时间</th>
-                <th>结束时间</th>
-                <th>订阅用户</th>
-                <th>有效期(天)</th>
-                <th>是否有效</th>
-                <th>操作</th>
-
-            </tr>
-            </thead>
-            <tbody id="tby">
-              <tr ng-repeat="sb in subscribeList">
-                <td>{{sb.product.name}}</td>
-                <td>{{sb.region.name}}</td>
-                <td>{{sb.billingType | billingTypeFilter}}</td>
-                <td>{{sb.buyNum}}</td>
-                <td>{{sb.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                <td>{{sb.startTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-                <td>{{sb.endTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                <td>{{sb.createUser.username}}</td>
-                <td>{{sb.validityPeriod}}</td>
-                <td>{{sb.isValid | subscribeValidFilter}}</td>
-                <td>
-                  <a href="javascript:void(0);" title="删除" ng-click="">
-                    <i class="fa fa-trash-o"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-        </table>
+  <div class="le-row operate-panel">
+    <div class="le-col-1">
+      <h3><span class="label label-default">子订单:</span></h3>
     </div>
-    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true,'position-class':'toast-bottom-right'}"></toaster-container>
+   <!--  <div class="le-col-2">
+      <ui-select ng-model="selectedProductName.selected" theme="bootstrap">
+        <ui-select-match placeholder="请选择订单ID">{{$select.selected.text}}</ui-select-match>
+        <ui-select-choices repeat="product in productNameList | propsFilter: {text: $select.search}">
+          <div>{{product.text}}</div>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+    <div class="le-col-2">
+      <button class="btn btn-primary" ng-click="doFilter()">筛选</button>
+      <button class="btn btn-default" ng-click="doClear()">清除</button>
+    </div> -->
+  </div>
+  <div class="le-row grid">
+    <table class="table table-bordered table-hover">
+      <thead>
+	<tr>
+          <th>子订单ID</th>
+          <th>规格名称</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+          <th>价格(元)</th>
+          <th>操作</th>
+	</tr>
+      </thead>
+      <tbody id="tby">
+	<tr ng-repeat="bl in billDetailList">
+          <td>{{bl.id}}</td>
+          <td>{{bl.subscriptionDetail.standardName}}</td>
+          <td>{{bl.startTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+          <td>{{bl.endTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+          <td>{{bl.price}}</td>
+          <td>
+            <a href="javascript:void(0);" title="编辑" ng-click="">
+              <i class="fa fa-pencil"></i>
+            </a>
+            <a href="javascript:void(0);" title="删除" ng-click="">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </td>
+	</tr>
+      </tbody>
+    </table>
+  </div>
+  <toaster-container toaster-options="{'time-out': 3000, 'close-button':true,'position-class':'toast-bottom-right'}"></toaster-container>
 </div>

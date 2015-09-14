@@ -1,12 +1,10 @@
 <div ng-controller="billing.bill">
    <div class="le-row operate-panel">
         <div class="le-col-2">
-            <ui-select ng-model="selectedProductName.selected" theme="bootstrap">
-                <ui-select-match placeholder="请选择订单ID">{{$select.selected.text}}</ui-select-match>
-                <ui-select-choices repeat="product in productNameList | propsFilter: {text: $select.search}">
-                    <div>{{product.text}}</div>
-                </ui-select-choices>
-            </ui-select>
+            <input type="text" ng-model="orderNumber" class="le-form-control" placeholder="请输入订单ID">
+        </div>
+        <div class="le-col-2">
+            <input type="text" ng-model="userName" class="le-form-control" placeholder="请输入用户名称">
         </div>
         <div class="le-col-2">
             <button class="btn btn-primary" ng-click="doFilter()">筛选</button>
@@ -22,17 +20,19 @@
                 <th>计费类型</th>
                 <th>开始时间</th>
                 <th>结束时间</th>
+                <th>所属用户</th>
                 <th>价格(元)</th>
                 <th>操作</th>
               </tr>
             </thead>
             <tbody id="tby">
               <tr ng-repeat="bl in billList">
-                <td><a class="link" href="/list/mcluster#/billing/bill/detail">{{bl.uuid}}</a></td>
-                <td>{{bl.ispaid| ispaidFilter}}</td>
-                <td>{{bl.billingType | billingTypeFilter}}</td>
+                <td><a class="link" href="/list/mcluster#/billing/bill/detail/{{bl.id}}">{{bl.orderNumber}}</a></td>
+                <td>{{bl.status| ispaidFilter}}</td>
+                <td>{{bl.subscription.chargeType | billingTypeFilter}}</td>
                 <td>{{bl.startTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
                 <td>{{bl.endTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{bl.subscription.userName}}</td>
                 <td>{{bl.price}}</td>
                 <td>
                   <a href="javascript:void(0);" title="编辑" ng-click="">

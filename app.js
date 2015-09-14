@@ -30,7 +30,7 @@ app.use('/', routes);
 app.use('/api', api);
 
 //mockData proxy
-app.use(mock);
+//app.use(mock);
 
 // proxy to backend server request
 app.use(proxy);

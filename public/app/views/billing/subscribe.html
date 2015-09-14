@@ -1,21 +1,11 @@
 <div ng-controller="billing.subscribe">
   <div class="le-row operate-panel">
         <div class="le-col-2">
-            <ui-select ng-model="selectedProductName.selected" theme="bootstrap">
-                <ui-select-match placeholder="请选择产品名称">{{$select.selected.text}}</ui-select-match>
-                <ui-select-choices repeat="product in productNameList | propsFilter: {text: $select.search}">
-                    <div>{{product.text}}</div>
-                </ui-select-choices>
-            </ui-select>
+            <input type="text" ng-model="productName" class="le-form-control" placeholder="订阅产品名称">
         </div>
-         <div class="le-col-2">
-            <ui-select ng-model="selectedOrgion.selected" theme="bootstrap">
-                <ui-select-match placeholder="请选择地域">{{$select.selected.text}}</ui-select-match>
-                <ui-select-choices repeat="orgion in orgionList | propsFilter: {text: $select.search}">
-                    <div>{{orgion.text}}</div>
-                </ui-select-choices>
-            </ui-select>
-         </div>
+        <div class="le-col-2">
+            <input type="text" ng-model="baseRegionName" class="le-form-control" placeholder="订阅所属地域">
+        </div>
          <div class="le-col-2">
             <ui-select ng-model="selectedUsername.selected" theme="bootstrap">
                 <ui-select-match placeholder="请选择用户名">{{$select.selected.text}}</ui-select-match>
@@ -41,7 +31,7 @@
                 <th>开始时间</th>
                 <th>结束时间</th>
                 <th>订阅用户</th>
-                <th>有效期(天)</th>
+                <th>有效期(月)</th>
                 <th>是否有效</th>
                 <th>操作</th>
 
@@ -49,16 +39,16 @@
             </thead>
             <tbody id="tby">
               <tr ng-repeat="sb in subscribeList">
-                <td>{{sb.product.name}}</td>
-                <td>{{sb.region.name}}</td>
-                <td>{{sb.billingType | billingTypeFilter}}</td>
-                <td>{{sb.buyNum}}</td>
+                <td><a class="link" href="/list/mcluster#/billing/subscribe/detail/{{sb.id}}">{{sb.productName}}</td>
+                <td>{{sb.baseRegionName}}</td>
+                <td>{{sb.chargeType | billingTypeFilter}}</td>
+                <td>{{sb.orderNum}}</td>
                 <td>{{sb.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 <td>{{sb.startTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
                 <td>{{sb.endTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-                <td>{{sb.createUser.username}}</td>
-                <td>{{sb.validityPeriod}}</td>
-                <td>{{sb.isValid | subscribeValidFilter}}</td>
+                <td>{{sb.userName}}</td>
+                <td>{{sb.orderTime}}</td>
+                <td>{{sb.valid | subscribeValidFilter}}</td>
                 <td>
                   <a href="javascript:void(0);" title="删除" ng-click="">
                     <i class="fa fa-trash-o"></i>
